@@ -2,16 +2,23 @@ package ru.otus.lesson13.transport;
 
 import ru.otus.lesson13.TerrainType;
 
+import java.util.Arrays;
+
 public class Car implements Transport {
 	private int fuel;
+	private final TerrainType[] impassableTerrainTypes = {TerrainType.SWAMP, TerrainType.FOREST};
 
 	public Car(int fuel) {
 		this.fuel = fuel;
 	}
 
+	private boolean checkTerrain(TerrainType type) {
+		return Arrays.asList(impassableTerrainTypes).contains(type);
+	}
+
 	@Override
 	public boolean move(int distance, TerrainType type) {
-		if (type == TerrainType.FOREST || type == TerrainType.SWAMP) {
+		if (checkTerrain(type)) {
 			System.out.println("Машина может перемещаться только по равнине");
 			return false;
 		}

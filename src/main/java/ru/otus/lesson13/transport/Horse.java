@@ -2,16 +2,23 @@ package ru.otus.lesson13.transport;
 
 import ru.otus.lesson13.TerrainType;
 
+import java.util.Arrays;
+
 public class Horse implements Transport {
 	private int stamina;
+	private final TerrainType[] impassableTerrainTypes = {TerrainType.SWAMP};
 
 	public Horse(int stamina) {
 		this.stamina = stamina;
 	}
 
+	private boolean checkTerrain(TerrainType type) {
+		return Arrays.asList(impassableTerrainTypes).contains(type);
+	}
+
 	@Override
 	public boolean move(int distance, TerrainType type) {
-		if (type == TerrainType.SWAMP) {
+		if (checkTerrain(type)) {
 			System.out.println("Лошадь не может перемещаться по болоту");
 			return false;
 		}

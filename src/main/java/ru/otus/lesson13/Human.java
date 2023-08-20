@@ -17,8 +17,8 @@ public class Human {
 		return stamina;
 	}
 
-	public void setStamina(int stamina) {
-		this.stamina = stamina;
+	public void decreaseStamina(int value) {
+		stamina -= value;
 	}
 
 	public void chooseTransport(Transport transport) {
@@ -34,17 +34,13 @@ public class Human {
 		System.out.println("Сначала необходимо покинуть транспорт");
 	}
 
-	public void leaveTransport(Transport transport) {
-		if (currentTransport == transport) {
-			System.out.println("Покинут транспорт: " + currentTransport);
-			currentTransport = null;
-			return;
-		}
+	public void leaveTransport() {
 		if (currentTransport == null) {
 			System.out.println("Транспорт уже покинут");
 			return;
 		}
-		System.out.println("Вы пытаетесь покинуть не тот транспорт, в котором вы находитесь");
+		System.out.println("Покинут транспорт: " + currentTransport);
+		currentTransport = null;
 	}
 
 	public boolean move(int distance, TerrainType type) {
