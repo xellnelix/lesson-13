@@ -3,18 +3,18 @@ package ru.otus.lesson13.transport;
 import ru.otus.lesson13.Human;
 import ru.otus.lesson13.TerrainType;
 
-import java.util.Arrays;
+import java.util.List;
 
 public class Bike implements Transport {
 	private Human driver;
-	private final TerrainType[] impassableTerrainTypes = {TerrainType.SWAMP};
+	private static final List<TerrainType> impassableTerrainTypes = List.of(TerrainType.SWAMP);
 
 	public Bike(Human driver) {
 		this.driver = driver;
 	}
 
 	private boolean checkTerrain(TerrainType type) {
-		return Arrays.asList(impassableTerrainTypes).contains(type);
+		return impassableTerrainTypes.contains(type);
 	}
 
 	@Override

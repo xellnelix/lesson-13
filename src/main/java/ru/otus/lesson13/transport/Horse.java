@@ -2,18 +2,17 @@ package ru.otus.lesson13.transport;
 
 import ru.otus.lesson13.TerrainType;
 
-import java.util.Arrays;
+import java.util.List;
 
 public class Horse implements Transport {
 	private int stamina;
-	private final TerrainType[] impassableTerrainTypes = {TerrainType.SWAMP};
-
+	private static final List<TerrainType> impassableTerrainTypes = List.of(TerrainType.SWAMP);
 	public Horse(int stamina) {
 		this.stamina = stamina;
 	}
 
 	private boolean checkTerrain(TerrainType type) {
-		return Arrays.asList(impassableTerrainTypes).contains(type);
+		return impassableTerrainTypes.contains(type);
 	}
 
 	@Override

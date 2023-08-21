@@ -2,18 +2,18 @@ package ru.otus.lesson13.transport;
 
 import ru.otus.lesson13.TerrainType;
 
-import java.util.Arrays;
+import java.util.List;
 
 public class Car implements Transport {
 	private int fuel;
-	private final TerrainType[] impassableTerrainTypes = {TerrainType.SWAMP, TerrainType.FOREST};
+	private static final List<TerrainType> impassableTerrainTypes = List.of(TerrainType.SWAMP, TerrainType.FOREST);
 
 	public Car(int fuel) {
 		this.fuel = fuel;
 	}
 
 	private boolean checkTerrain(TerrainType type) {
-		return Arrays.asList(impassableTerrainTypes).contains(type);
+		return impassableTerrainTypes.contains(type);
 	}
 
 	@Override
