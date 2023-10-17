@@ -6,14 +6,14 @@ import java.util.List;
 
 public class Car implements Transport {
 	private int fuel;
-	private static final List<TerrainType> impassableTerrainTypes = List.of(TerrainType.SWAMP, TerrainType.FOREST);
+	private static final List<TerrainType> IMPASSABLE_TERRAIN_TYPES = List.of(TerrainType.SWAMP, TerrainType.FOREST);
 
 	public Car(int fuel) {
 		this.fuel = fuel;
 	}
 
 	private boolean checkTerrain(TerrainType type) {
-		return impassableTerrainTypes.contains(type);
+		return IMPASSABLE_TERRAIN_TYPES.contains(type);
 	}
 
 	@Override

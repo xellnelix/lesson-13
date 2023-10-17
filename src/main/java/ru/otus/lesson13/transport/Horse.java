@@ -6,13 +6,13 @@ import java.util.List;
 
 public class Horse implements Transport {
 	private int stamina;
-	private static final List<TerrainType> impassableTerrainTypes = List.of(TerrainType.SWAMP);
+	private static final List<TerrainType> IMPASSABLE_TERRAIN_TYPES = List.of(TerrainType.SWAMP);
 	public Horse(int stamina) {
 		this.stamina = stamina;
 	}
 
 	private boolean checkTerrain(TerrainType type) {
-		return impassableTerrainTypes.contains(type);
+		return IMPASSABLE_TERRAIN_TYPES.contains(type);
 	}
 
 	@Override
